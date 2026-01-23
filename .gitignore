@@ -1,0 +1,20 @@
+# Python codes
+venev/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+
+
+# The Database
+database/*.db
+*.db
+*.sqlite
+*.sqlite3
