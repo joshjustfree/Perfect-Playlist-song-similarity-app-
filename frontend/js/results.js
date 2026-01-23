@@ -1,0 +1,1 @@
+// Results display and management for the frontend
