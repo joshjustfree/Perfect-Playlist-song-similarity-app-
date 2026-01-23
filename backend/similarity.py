@@ -1,0 +1,1 @@
+# Cosine similarity calculation module
