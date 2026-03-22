@@ -41,7 +41,7 @@ searchForm.addEventListener('submit', async (event) => {
         // Get the response data
         const data = await response.json();
 
-        // Throw an erro if one occures
+        // Throw an error if one occurs
         if (!response.ok) {
             throw new Error(data.error || 'An error occurred while searching for the song.');
         }
@@ -49,10 +49,8 @@ searchForm.addEventListener('submit', async (event) => {
         // Save the search result in the session storage
         sessionStorage.setItem('searchResult', JSON.stringify(data));
 
-        // Wait for a 5 seconds before redirecting to the result page
-        setTimeout(() => {
-            window.location.href = 'result.html';  // Redirect the user to the result page
-        }, 500);
+        // Redirect to the results page
+        window.location.href = '/frontend/results.html';
 
     } catch (error) {
         // If an error occurs, hide the transition overlay and display the error message
