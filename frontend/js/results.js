@@ -3,8 +3,6 @@
 // Get the search results
 const results = JSON.parse(sessionStorage.getItem('searchResult'));
 
-
-
 // If there are no results, just go back to the search page
 if (!results) {
     window.location.href = 'index.html';
@@ -28,4 +26,3 @@ for (let i = 0; i < similarSongs.length; i++) {
         </div>
     `;
 }
-
