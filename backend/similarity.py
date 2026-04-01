@@ -20,7 +20,7 @@ def search_song(title, artist):
     return result.iloc[0].to_dict()
 
 # Find similar songs using the 5 attributes
-def find_similar(song_data, count=5):
+def find_similar(song_data, count=10):
 
     # Use the song's details to exclude it from the results
     original_song_name = song_data['name']
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     if song:
         print(f"Found song: {song['name']} by {song['artists']}")
         print("\nSimilar songs:")
-        similar_songs = find_similar(song, 5)
+        similar_songs = find_similar(song, 10)
         for s in similar_songs:
             print(f"  {s['name']} by {s['artists']} ({s['similarity' ]}% similar)")
     else:

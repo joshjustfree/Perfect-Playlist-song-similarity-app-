@@ -34,7 +34,7 @@ def search():
         return jsonify({"error": "Song not found."}), 404
     
     # Find the similar songs using the find_similar function from the similarity calculation module
-    similar_songs = similarity.find_similar(song, count=5)
+    similar_songs = similarity.find_similar(song, count=10)
 
     # Save the search to the search history in the database
     database.save_search(title, artist)
