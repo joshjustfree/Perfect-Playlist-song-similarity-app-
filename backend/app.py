@@ -88,8 +88,13 @@ def add_favourite():
     if not title or not artist:
         return jsonify({"error": "Please provide both the 'title' and 'artist'."}), 400
     
-    database.add_favourite(title, artist)
-    return jsonify({"message": "Song added to favourites!"}), 201
+    
+    added = database.add_favourite(title, artist)
+    if added:
+        return jsonify({"message": "Song added to your favourites!"}), 201
+    else:
+        return jsonify({"message": "Song is already in your favourites!"}), 200
+
 
 if __name__ == '__main__':
     print("Starting up the Flask 'server'...")

@@ -32,6 +32,7 @@ def init_db():
     conn.close()
     print("Database initialized successfully.")
 
+
 # Saving search history to the database
 def save_search(song_title, artist_name):
     conn = sqlite3.connect(DATABASE_PATH)
@@ -40,6 +41,7 @@ def save_search(song_title, artist_name):
 
     conn.commit()
     conn.close()
+
 
 # Gettiing all searches 
 def get_search_history():
@@ -58,14 +60,26 @@ def get_search_history():
         })
     return history
     
+
 # Saving favourite songs to the database
 def add_favourite(song_title, artist_name):
     conn = sqlite3.connect(DATABASE_PATH)
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO favourite_songs (song_title, artist_name) VALUES (?, ?)', (song_title, artist_name))
 
-    conn.commit()
-    conn.close()
+    # Check if the song is already in the favourites list in order to avoid duplicates
+    cursor.execute('SELECT * FROM favourite_songs WHERE song_title = ? AND artist_name = ?', (song_title, artist_name))
+    existing = cursor.fetchone()
+
+    # If the song is not already in the favourites list, add it to the database
+    if not existing:
+        cursor.execute('INSERT INTO favourite_songs (song_title, artist_name) VALUES (?, ?)', (song_title, artist_name))
+        conn.commit()
+        conn.close()
+        return True  # To indicate that the song was added successfully
+    else:
+        conn.close()
+        return False  # To indicate that the song was already in the favourites list
+
 
 # Getting all favourite songs
 def get_favourites():
