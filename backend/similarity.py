@@ -5,8 +5,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Load the dataset once when the module is imported
 df = pd.read_csv('data/spotify_data.csv')
 
-# Use these 5 features for similarity calculation
-FEATURES = ['danceability', 'energy', 'key', 'tempo', 'valence']
+# Use these 4 features for similarity calculation
+FEATURES = ['danceability', 'energy', 'tempo', 'valence']
 
 # Find the song in the dataset that matches the given song name
 def search_song(title, artist):
@@ -19,7 +19,7 @@ def search_song(title, artist):
         return None
     return result.iloc[0].to_dict()
 
-# Find similar songs using the 10 attributes
+# Find similar songs using the 4 attributes
 def find_similar(song_data, count=10):
 
     # Use the song's details to exclude it from the results
@@ -30,7 +30,6 @@ def find_similar(song_data, count=10):
     song_features = [[
         song_data['danceability'],
         song_data['energy'],
-        song_data['key'],
         song_data['tempo'],
         song_data['valence']
     ]]
@@ -58,6 +57,9 @@ def find_similar(song_data, count=10):
     same_artist = df_copy[df_copy['artists'] == original_song_artist]
     different_artist = df_copy[df_copy['artists'] != original_song_artist]
 
+    # Only include the artist song if it is actually similar (95% or higher)
+    same_artist = same_artist[same_artist['similarity'] >= 0.95]
+
     # Sorting the songs by similarity for both the same artist and different artists
     same_artist = same_artist.sort_values('similarity', ascending=False)
     different_artist = different_artist.sort_values('similarity', ascending=False)
@@ -79,6 +81,7 @@ def find_similar(song_data, count=10):
         song['similarity'] = round(song['similarity'] * 100, 1) # Convert to percentage
         results.append(song)
     return results
+
 
 
 # Testing the functionalities (I will be remove it before final submission)
