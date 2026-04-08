@@ -19,7 +19,7 @@ def search_song(title, artist):
         return None
     return result.iloc[0].to_dict()
 
-# Find similar songs using the 5 attributes
+# Find similar songs using the 10 attributes
 def find_similar(song_data, count=10):
 
     # Use the song's details to exclude it from the results
@@ -54,12 +54,27 @@ def find_similar(song_data, count=10):
     # Removing duplicate songs from the results (same name and artist)
     df_copy = df_copy.drop_duplicates(subset=['name', 'artists'], keep='first')
 
-    # Sort the similarities and get the top results
-    df_copy = df_copy.sort_values('similarity', ascending=False).head(count) 
+    # Separating songs by the same artist and those with different artists
+    same_artist = df_copy[df_copy['artists'] == original_song_artist]
+    different_artist = df_copy[df_copy['artists'] != original_song_artist]
 
-    # Converting the list of dictionaries
+    # Sorting the songs by similarity for both the same artist and different artists
+    same_artist = same_artist.sort_values('similarity', ascending=False)
+    different_artist = different_artist.sort_values('similarity', ascending=False)
+
+    # Get the top results for songs by the same artist
+    same_artist_results = same_artist.head(count)
+
+    # If there are not enough similar songs by the same artist, then add songs from different artists
+    remaining_left = count - len(same_artist_results)
+    different_artist_results = different_artist.head(remaining_left)
+    
+    # Combine the results and prioritise songs by the same artist first
+    final_results = pd.concat([same_artist_results, different_artist_results])
+
+    # Convert the results to a list of dictionaries and round the similarity score to a percentage
     results = []
-    for _, row in df_copy.iterrows():
+    for _, row in final_results.iterrows():
         song = row.to_dict()
         song['similarity'] = round(song['similarity'] * 100, 1) # Convert to percentage
         results.append(song)
