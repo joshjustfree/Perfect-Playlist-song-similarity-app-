@@ -169,3 +169,57 @@ button:hover {
     font-size: 1rem;
     color: #636261;
 }
+
+
+/*History and Favourites Pages*/
+.list-page {
+    background-color: #242321;
+    color: #F2F2F2;
+    min-height: 100vh;
+}
+
+.list-item {
+    background-color: #1A1A1A;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.list-item:hover {
+    background-color: #232421;
+}
+
+.empty-state {
+    text-align: center;
+    color: #636261;
+    padding: 60px 20px;
+}
+
+
+/* Add to favourites button */
+.add-fav-btn {
+    background: #a6a4a4e4;
+    border: 2px solid #636363;
+    color: #0D0D0D;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+.add-fav-btn:hover {
+    background: #636363;
+    border-color: #F2F2F2;
+    transform: scale(1.05);
+}       
+.add-fav-btn.added {
+    background: #F2F2F2;
+    color: #0D0D0D;
+    border-color: #F2F2F2;
+    cursor: not-allowed;
+}
+.add-fav-btn:disabled {
+    cursor: not-allowed;
+}
