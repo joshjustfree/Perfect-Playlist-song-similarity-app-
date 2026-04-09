@@ -57,8 +57,8 @@ def find_similar(song_data, count=10):
     same_artist = df_copy[df_copy['artists'] == original_song_artist]
     different_artist = df_copy[df_copy['artists'] != original_song_artist]
 
-    # Only include the artist song if it is actually similar (95% or higher)
-    same_artist = same_artist[same_artist['similarity'] >= 0.95]
+    # Only include the artist song if it is actually similar (99% or higher)
+    same_artist = same_artist[same_artist['similarity'] >= 0.99]
 
     # Sorting the songs by similarity for both the same artist and different artists
     same_artist = same_artist.sort_values('similarity', ascending=False)
