@@ -28,7 +28,7 @@ To use the app, make sure the followng are installed on your device:
 
 ### Step 1: Clone the repository
 
-Open VS coode, and in the intergrated terminal run the following code:
+Open VS coode, and in the intergrated terminal run the following:
 
 ```bash
 
@@ -38,15 +38,15 @@ cd Perfect-Playlist-song-similarity-app-
 
 ### Step 2: Set Up the Python Virtual Environment
 
-Navigate to the backend folder:
+- Run this in the terminal to navigate to the backend folder:
 
 ```bash
 cd backend
 ```
 
-since the spotify dataset is already included in the repository, there is no need to download it separately
+Since the spotify dataset is already included in the repository, there is no need to download it separately
 
-- Create and activate a virtual environment:
+- Create and activate a virtual environment by running the following in the terminal:
 
 ```bash
 python3 -m venv venv
@@ -60,7 +60,7 @@ venv/Scripts/activate
 
 You should now see `(venv)` at the beginning of the terminal prompt
 
-- Install the required dependencies:
+- Install the required dependencies using:
 
 ```bash
 pip install -r requirements.txt
@@ -95,7 +95,7 @@ Starting up th flask 'server'...
  ...
 ```
 
-The backend server must remain running so keep this terminal open
+The backend server must remain running, so keep this terminal open
 
 ### Step 5: Run the Frontend With Live Server
 
@@ -103,9 +103,6 @@ The backend server must remain running so keep this terminal open
 2. In the VS code file explorer, right click on `frontend/index.html`
 3. Click "Open with Live Server"
 4. The web app will open in your local browser at:
-
-```bash
-http://127.0.0.1:5000/frontend/index.html
-```
+   `http://127.0.0.1:5500/frontend/index.html`
 
 ## YOU CAN NOW USE THE APP!!
