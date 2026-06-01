@@ -28,7 +28,7 @@ To use the app, make sure the followng are installed on your device:
 
 ### Step 1: Clone the repository
 
-Open VS coode, and in the intergrated terminal run the following:
+Open VS code, and in the intergrated terminal run the following:
 
 ```bash
 
@@ -44,7 +44,7 @@ cd Perfect-Playlist-song-similarity-app-
 cd backend
 ```
 
-Since the spotify dataset is already included in the repository, there is no need to download it separately
+Since the spotify dataset is already included in the repository, there is no need to download it separately.
 
 - Create and activate a virtual environment by running the following in the terminal:
 
@@ -52,7 +52,7 @@ Since the spotify dataset is already included in the repository, there is no nee
 python3 -m venv venv
 
 # To activate on Mac/Linux
-sourse venv/bin/activate
+source venv/bin/activate
 
 # To activate on Windows
 venv/Scripts/activate
@@ -74,11 +74,8 @@ pip install -r requirements.txt
 python3 database.py
 ```
 
-You should see:
-
-```bash
-Database initialized successfully.
-```
+You should see this in the terminal:
+`Database initialized successfully.`
 
 ### Step 4: Start the Flask Backend Server
 
@@ -86,10 +83,9 @@ Database initialized successfully.
 python3 app.py
 ```
 
-You should see:
+You should see this in the terminal:
 
-```bash
-Database initialized successfully.
+```Database initialized successfully.
 Starting up th flask 'server'...
  * Running on http://127.0.0.1:5000
  ...
