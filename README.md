@@ -30,11 +30,11 @@ To use the app, make sure the followng are installed on your device:
 
 Open VS coode, and in the intergrated terminal run the following code:
 
-'''bash
+```bash
 
-- git clone https://github.com/joshjustfree/Perfect-Playlist-song-similarity-app-.git
-- cd Perfect-Playlist-song-similarity-app-
-  '''
+git clone https://github.com/joshjustfree/Perfect-Playlist-song-similarity-app-.git
+cd Perfect-Playlist-song-similarity-app-
+```
 
 ### Step 2: Set Up the Python Virtual Environment
 
