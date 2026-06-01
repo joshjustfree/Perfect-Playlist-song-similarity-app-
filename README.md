@@ -85,7 +85,8 @@ python3 app.py
 
 You should see this in the terminal:
 
-```Database initialized successfully.
+```bash
+Database initialized successfully.
 Starting up th flask 'server'...
  * Running on http://127.0.0.1:5000
  ...
