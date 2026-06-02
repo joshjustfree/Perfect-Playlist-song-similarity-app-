@@ -92,7 +92,7 @@ Starting up th flask 'server'...
  ...
 ```
 
-The backend server must remain running, so keep this terminal open
+The backend server must remain running, so keep this terminal open.
 
 ### Step 5: Run the Frontend With Live Server
 
@@ -103,3 +103,20 @@ The backend server must remain running, so keep this terminal open
    `http://127.0.0.1:5500/frontend/index.html`
 
 ## YOU CAN NOW USE THE APP!!
+
+# TEST CASES
+
+## Landing Page
+
+**Test Case 1**: Open the web app - The landing page appears with a white backgrounnd and a search bar with two input fields.
+**Test Case 2**: Click the "Search" button with both fields empty - An error message will appear asking you to fill in the empty fields.
+**Test Case 3**: Click the "Search" button with only the "Song Title" field in - An error messagae will apper asking you to fill in the "Artist Name" field.
+**Test Case 4**: Click the "Search History" link - You will be redirected to the search history page.
+**Test Case 5**: Click the "Favourites" link - You will be redirected to the favourites page.
+
+## Favourites Page
+
+**Test Case 1**: Go to the favourites page without adding any songs - The message "No favourtes yet" will appear with a link to the search page.
+**Test Case 2**: Add a song to favourites, then go to the favourites page - The song appears in the favourites list with its name and artist.
+**Test Case 3**: Try addiing the same song to favourites twice - The song only appears once in the favourites list.
+**Test Case 4**: Click the "←Back" link - You will be redirected back to the landing page.
