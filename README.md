@@ -102,7 +102,7 @@ The backend server must remain running, so keep this terminal open.
 4. The web app will open in your local browser at:
    `http://127.0.0.1:5500/frontend/index.html`
 
-## YOU CAN NOW USE THE APP!!
+### Step 6: YOU CAN NOW USE THE APP!!
 
 # TEST CASES
 
