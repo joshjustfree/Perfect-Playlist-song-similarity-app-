@@ -45,6 +45,11 @@ cd backend
 ```
 
 Since the spotify dataset is already included in the repository, there is no need to download it separately.
+But if it is not included:
+
+1. Go to "kaggle.com" and download the "Spotify-Data 1921-2020" CSV file.
+2. Rename it to `spotify_data.csv`.
+3. Place it inside the `bcakend/data/` folder.
 
 - Create and activate a virtual environment by running the following in the terminal:
 
